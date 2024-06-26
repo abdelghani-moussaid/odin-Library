@@ -1,3 +1,29 @@
+// Get the modal
+var modal = document.getElementById("myModal");
+        
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 const myLibrary = [];
 
 function Book(title, author, pages, readingStatus) {
@@ -10,47 +36,58 @@ function Book(title, author, pages, readingStatus) {
     };
 }
 
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295);
+myLibrary.push(theHobbit);
+
 
 function addBookToLibrary() {
 
-    const title = prompt("Book title?");
-    const author = prompt("Book author?");
-    const pages = prompt("How many pages?");
-    const readingStatus = prompt("What's your reading status?");
+    const frm = document.getElementById("myForm")
 
-    const myBook = new Book(title, author, pages, readingStatus);
+    const btn = document.getElementById("submit");
 
-    myLibrary.push(myBook);
+    btn.addEventListener("click", (event) => {
 
-    console.table(myLibrary);
+
+        const tbody = document.getElementById("tbody");
+        empty(tbody);
+        
+        const myBook = new Book(document.getElementById("title").value, 
+                                document.getElementById("author").value, 
+                                document.getElementById("pages").value,
+                                "no");
+        myLibrary.push(myBook);
+        frm.reset(); 
+        modal.style.display = "none";
+        displayBookOnPage();
+        event.preventDefault();
+    })
+
+}
+addBookToLibrary();
+handleDeletingBooks();
+
+function handleDeletingBooks(){
+    const deleting = document.querySelectorAll(".deleteBtn");
+    deleting.forEach((deletedBook) => {
+        deletedBook.addEventListener("click", ()=> {
+            const result = confirm("Want to delete this book?");
+            if (result == true) {
+                empty(tbody);
+                myLibrary.splice(deletedBook.id, 1);
+                displayBookOnPage();
+            }
+        });
+    });
 
 }
 
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
 
-function displayBooksOnPage() {
-    //If library contains books
-    const container = document.querySelector("#container");
-    const table = document.createElement("table");
-    const row = document.createElement("tr");
-    const title = document.createElement("th");
-    title.textContent = "Title";
-    const author = document.createElement("th");
-    author.textContent = "Author";
-    const pages = document.createElement("th");
-    pages.textContent = "Pages";
-    const readingStatus = document.createElement("th");
-    readingStatus.textContent = "Reading Status";
-    container.appendChild(table);
-    table.appendChild(row);
-    row.appendChild(title);
-    row.appendChild(author);
-    row.appendChild(pages);
-    row.appendChild(readingStatus);
-    myLibrary.forEach(book => {
+
+
+function displayBookOnPage() {
+    const tbody = document.getElementById("tbody");
+    myLibrary.forEach( (book, index) => {
         const row = document.createElement("tr");
         const title = document.createElement("td");
         title.textContent = book.title;
@@ -60,12 +97,26 @@ function displayBooksOnPage() {
         pages.textContent = book.pages;
         const readingStatus = document.createElement("td");
         readingStatus.textContent = book.readingStatus;
-        table.appendChild(row);
+        const deleting = document.createElement("td");
+        const btn = document.createElement("button");
+        btn.textContent = "delete";
+        btn.id = index;
+        btn.className = "deleteBtn";
+        deleting.appendChild(btn);
+        tbody.appendChild(row);
         row.appendChild(title);
         row.appendChild(author);
         row.appendChild(pages);
         row.appendChild(readingStatus);
+        row.appendChild(deleting);
     });
+    handleDeletingBooks()
 }
 
-displayBooksOnPage();
+function empty(element) {
+    while(element.firstElementChild) {
+        element.firstElementChild.remove();
+    }
+}
+
+
