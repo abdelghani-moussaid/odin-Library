@@ -151,6 +151,10 @@ tr:nth-child(odd) td {
     justify-content: center;
     align-items: center;
     padding: 100px;
+    margin: 0;
+    background-image: url("images/pexels-element5-1370295.jpg");
+    background-color: rgba(255,255,255,0.9);
+    background-blend-mode: lighten;
   }
 
   #myBtn {
@@ -192,10 +196,32 @@ tr:nth-child(odd) td {
     }
 
     #readImg {
-        filter: invert(14%) sepia(71%) saturate(893%) hue-rotate(213deg) brightness(84%) contrast(104%);
-        margin-right: 10px;
+        filter: invert(0%) sepia(82%) saturate(7427%) hue-rotate(248deg) brightness(84%) contrast(115%);
     }
 
     #status {
         width: 150px;
+    }
+
+    #action {
+        width: 120px;
+    }
+
+    td button {
+        margin: 0px 6px
+    }
+
+    .credits {
+        position: absolute;
+        color:#e6e7db;
+        font-size: 16px;
+        text-align: center;
+        background-color: #121a12;
+        opacity: 0.6;
+        top: 95vh;
+        padding: 8px;
+        /* width: 60%; */
+    }
+    a {
+        color: #fff;
     }
