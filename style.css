@@ -195,3 +195,7 @@ tr:nth-child(odd) td {
         filter: invert(14%) sepia(71%) saturate(893%) hue-rotate(213deg) brightness(84%) contrast(104%);
         margin-right: 10px;
     }
+
+    #status {
+        width: 150px;
+    }
