@@ -113,7 +113,6 @@ tr:nth-child(odd) td {
 
   #submit {
     background-color: #80BCBD;
-    color: #F9F7C9;
     width: 93%;
     border-style: none;
     padding: 10px 0px;
@@ -133,10 +132,10 @@ tr:nth-child(odd) td {
   }
 
   select {
-    width: 100%;
+    width: 93%;
     border: none;
     border-radius: 4px;
-    background-color: #d1d1d1;
+    background-color: #edecec;
     padding: 10px 18px;
   }
 
@@ -151,6 +150,7 @@ tr:nth-child(odd) td {
     display: grid;
     justify-content: center;
     align-items: center;
+    padding: 100px;
   }
 
   #myBtn {
@@ -174,18 +174,24 @@ tr:nth-child(odd) td {
     cursor: pointer;
   }
 
-.deleteBtn {
-    background-color: #f44336;
-    color: white;
-    padding: 8px 12px;
-    margin: 2px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-    border-radius: 4px;
-}
-    
-.deleteBtn:hover {
-    opacity:1;
-}
+
+    #deleteImg, #readImg {
+        filter: invert(20%) sepia(55%) saturate(2917%) hue-rotate(352deg) brightness(109%) contrast(88%);
+        height: 35px;
+        width: auto;
+    }
+
+    .deleteBtn, .readBtn {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+    #readImg {
+        filter: invert(14%) sepia(71%) saturate(893%) hue-rotate(213deg) brightness(84%) contrast(104%);
+        margin-right: 10px;
+    }

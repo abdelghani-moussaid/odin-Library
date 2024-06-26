@@ -26,7 +26,12 @@
                 <label for="author">Author</label>
                 <input type="text" name="author" id="author">
                 <label for="pages">Pages</label>
-                <input type="number" name="pages" id="pages">   
+                <input type="number" name="pages" id="pages">
+                <label for="readingStatus">Reading Status</label>
+                <select name="readingStatus" id="readingStatus">
+                    <option value="Not read yet">Not read yet</option>
+                    <option value="Read">Read</option>
+                </select>  
                 <button type="submit" id="submit">Add Book</button>
             </form>
       </div>
@@ -38,15 +43,18 @@
                 <th>Author</th>
                 <th>Pages</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th colspan="2" scope="colgroup">Action</th>
             </tr>
             <tbody id="tbody">
                 <tr>
                     <td>The Hobbit</td>
                     <td>J.R.R. Tolkien</td>
                     <td>295</td>
-                    <td>No</td>
-                    <td><button id="0" class="deleteBtn">delete</button></td>
+                    <td>Not read yet</td>
+                    <td>
+                        <button id="0" class="readBtn"><img src="images/read.svg" alt="mark as read" title="mark as read" id="readImg"></button>
+                        <button id="0" class="deleteBtn"><img src="images/delete.svg" alt="delete" title="delete" id="deleteImg"></button>
+                    </td>
                 </tr>
             </tbody>
         </table>
