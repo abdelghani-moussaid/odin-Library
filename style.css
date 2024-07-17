@@ -1,35 +1,63 @@
-html {
-    font-family: sans-serif;
-    color: #555;
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /* font-size: 12px; */
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  Matt's CSS Normalize 
+  https://mattbrictson.com/blog/css-normalize-and-reset
+*/
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  font-weight: inherit;
+} 
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
 }
 
-table {
-    border-collapse: collapse;
-    border: 2px solid rgb(200,200,200);
-    letter-spacing: 1px;
-    font-size: 1.3rem;
+
+/* MDN's Styling forms : */
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
 }
 
-td, th {
-    border: 1px solid rgb(190,190,190);
-    padding: 10px 20px;
+
+input,
+textarea,
+select,
+button {
+width: 150px;
+padding: 0;
+margin: 0; 
+box-sizing: border-box;
 }
 
-th {
-    background-color: #AAD9BB;
-}
-
-td {
-    text-align: center;
-}
-
-tr:nth-child(even) td {
-    background-color: #fff;
-}
-
-tr:nth-child(odd) td {
-    background-color: #fff;
-}
 
 /* The Modal (background) */
 .modal {
@@ -48,16 +76,16 @@ tr:nth-child(odd) td {
   
   /* Modal Content */
   .modal-content {
-    background-color: #fff;
+    background-color: #A0937D;
     margin: auto;
-    padding: 35px;
+    padding: 30px 35px;
     border: 1px solid #888;
     width: 500px;
   }
   
   /* The Close Button */
   .close {
-    color: #aaaaaa;
+    color: #000;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -70,158 +98,123 @@ tr:nth-child(odd) td {
     cursor: pointer;
   }
 
-  /* Styling form */ 
-  button,
-  input,
-  select,
-  textarea {
-    font-family: inherit;
-    font-size: inherit;
+  body {
+    background-color: #F6E6CB;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
-  
-  input,
-  textarea,
-  select,
-  button {
-    padding: 0;
-  }
-
-  ul {
-    padding: 0;
-  }
-  
-  li {
-    display: block;
-    margin-bottom: 12px;
-  }
-
-  input, select {
-    width: 90%;
-    padding: 6px;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    background-color: #fff;
-  }
-  form {
-    width: 100%;
-    /* padding: 20px 50px; */
-  }
-
-  label {
-    font-weight: 600;
-  }
-
-  #submit {
-    background-color: #80BCBD;
-    width: 93%;
-    border-style: none;
-    padding: 10px 0px;
-    border-radius: 4px;
-    font-weight: 600;
-    margin-top: 12px;
-  }
-
-  #submit:hover {
-    background-color: #F1E4C3;
-    cursor: pointer;
-    color: #555;
-  }
-
-  input[type=text]:focus {
-    border: 3px solid #555;
-  }
-
-  select {
-    width: 93%;
-    border: none;
-    border-radius: 4px;
-    background-color: #edecec;
-    padding: 10px 18px;
-  }
-
   .header {
     display: flex;
+    height: 150px;
     justify-content: space-between;
-    background-color: #80BCBD;
-    /* color: #F8FAE5; */
-    padding: 0px 16px;
-  }
-  body {
-    display: grid;
-    justify-content: center;
+    padding: 80px;
     align-items: center;
-    padding: 100px;
-    margin: 0;
-    background-image: url("images/pexels-element5-1370295.jpg");
-    background-color: rgba(255,255,255,0.9);
-    background-blend-mode: lighten;
   }
 
-  #myBtn {
-    background-color: #FFFFEC;
-    border: none;
-    padding: 6px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    height: 100%;
-    align-self: center;
-    border-radius: 4px;
+  #container {
+    flex: 1;
+  }
+  h1 {
+    font-size: 2rem;
     font-weight: 600;
   }
 
-  #myBtn:hover {
-    background-color: #F1E4C3;
-    cursor: pointer;
+  #addBook {
+    background-color: #B6C7AA;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5rem;
   }
 
+  #addBook:hover {
+    background-color: #8da57c;
+  }
 
-    #deleteImg, #readImg {
-        filter: invert(20%) sepia(55%) saturate(2917%) hue-rotate(352deg) brightness(109%) contrast(88%);
-        height: 35px;
-        width: auto;
-    }
+  .card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #A0937D;
+    padding: 80px;
+  }
 
-    .deleteBtn, .readBtn {
-        background: none;
-        color: inherit;
-        border: none;
-        padding: 0;
-        font: inherit;
-        cursor: pointer;
-        outline: inherit;
-    }
+  .card-item {
+    background-color: #E7D4B5;
+    border-top: 2px solid #A0937D;
+    border-right: 2px solid #A0937D;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.3rem;
+  }
 
-    #readImg {
-        filter: invert(0%) sepia(82%) saturate(7427%) hue-rotate(248deg) brightness(84%) contrast(115%);
-    }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
 
-    #status {
-        width: 150px;
-    }
+  img {
+    height: 30px;
+    width: auto;
+  }
 
-    #action {
-        width: 120px;
-    }
+  h2 {
+    font-weight: 600;
+  }
+  footer {
+    text-align: center;
+    justify-self: flex-end;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
 
-    td button {
-        margin: 0px 6px
-    }
+  span {
+    text-decoration: underline;
+  }
 
-    .credits {
-        position: absolute;
-        color:#e6e7db;
-        font-size: 16px;
-        text-align: center;
-        background-color: #121a12;
-        opacity: 0.6;
-        top: 95vh;
-        padding: 8px;
-        /* width: 60%; */
-    }
-    a {
-        color: #fff;
-    }
+  a, button {
+    cursor: pointer;
+  }
+ 
+  form {
+    margin-top: 50px;
+    width: 90%;
+  }
+  input[type=text], input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #E7D4B5;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #B6C7AA;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #8da57c;
+  }
+
+  input[type=checkbox] {
+    width: 30px;
+    height: auto;
+    background-color: #E7D4B5;
+  }
+
+  
